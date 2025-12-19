@@ -225,6 +225,95 @@
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
         }
         
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+        
+        .product-content {
+            padding: 25px;
+        }
+        
+        .product-content h3 {
+            font-size: 1.5rem;
+            color: #0a4a6f;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .product-specs {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .product-specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .product-specs li:last-child {
+            border-bottom: none;
+        }
+        
+        .spec-label {
+            font-weight: 600;
+            color: #555;
+        }
+        
+        .spec-value {
+            color: #0a4a6f;
+        }
+        
+        .product-button {
+            display: block;
+            text-align: center;
+            background-color: #0a4a6f;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+        
+        .product-button:hover {
+            background-color: #4ecdc4;
+        }
+        
         /* Contact Section */
         .contact-container {
             display: grid;
@@ -385,13 +474,19 @@
         
         /* Responsive Styles */
         @media (max-width: 992px) {
-            .about-content, .contact-container {
+            .about-content, .contact-container, .products-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
             
             .hero h1 {
                 font-size: 2.8rem;
+            }
+            
+            .products-grid {
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
             }
         }
         
@@ -440,6 +535,10 @@
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
+            
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 576px) {
@@ -454,6 +553,10 @@
             
             .contact-form {
                 padding: 25px;
+            }
+            
+            .product-img {
+                height: 200px;
             }
         }
     </style>
@@ -474,6 +577,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
+                <li><a href="#products">Products</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -523,7 +627,71 @@
                 </div>
                 
                 <div class="about-image">
-                    <img src="https://exhaustfanchina.com/wp-content/uploads/2021/06/Industrial-Evaporative-Cooling-Pad-with-Water-Pump.jpg" alt="Cooling Pad Installation">
+                    <img src="https://exhaustfanchina.com/wp-content/uploads/2021/06/Industrial-Evaporative-Cooling-Pad-with-Water-Pump.jpg">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <p class="subtitle">High-quality evaporative cooling pads for various applications and requirements</p>
+            
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 50*90">
+                    </div>
+                    <div class="product-content">
+                        <h3>Pad 50*90</h3>
+                        <ul class="product-specs">
+                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">50cm x 90cm</span></li>
+                            <li><span class="spec-label">Material:</span> <span class="spec-value">Premium Cellulose</span></li>
+                            <li><span class="spec-label">Thickness:</span> <span class="spec-value">Standard</span></li>
+                            <li><span class="spec-label">Cooling Efficiency:</span> <span class="spec-value">Up to 75%</span></li>
+                            <li><span class="spec-label">Application:</span> <span class="spec-value">Small Greenhouses</span></li>
+                        </ul>
+                        <a href="#contact" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 60*90">
+                    </div>
+                    <div class="product-content">
+                        <h3>Pad 60*90</h3>
+                        <ul class="product-specs">
+                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">60cm x 90cm</span></li>
+                            <li><span class="spec-label">Material:</span> <span class="spec-value">Premium Cellulose</span></li>
+                            <li><span class="spec-label">Thickness:</span> <span class="spec-value">Enhanced</span></li>
+                            <li><span class="spec-label">Cooling Efficiency:</span> <span class="spec-value">Up to 80%</span></li>
+                            <li><span class="spec-label">Application:</span> <span class="spec-value">Medium Farms</span></li>
+                        </ul>
+                        <a href="#contact" class="product-button">Inquire Now</a>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="product-img">
+                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 70*90">
+                    </div>
+                    <div class="product-content">
+                        <h3>Pad 70*90</h3>
+                        <ul class="product-specs">
+                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">70cm x 90cm</span></li>
+                            <li><span class="spec-label">Material:</span> <span class="spec-value">Premium Cellulose</span></li>
+                            <li><span class="spec-label">Thickness:</span> <span class="spec-value">Heavy Duty</span></li>
+                            <li><span class="spec-label">Cooling Efficiency:</span> <span class="spec-value">Up to 85%</span></li>
+                            <li><span class="spec-label">Application:</span> <span class="spec-value">Large Industrial</span></li>
+                        </ul>
+                        <a href="#contact" class="product-button">Inquire Now</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -569,7 +737,7 @@
                 
                 <div class="contact-form">
                     <h3>Send Us a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/xrbnnppq" method="POST">
+                    <form id="contactForm" action="https://formspree.io/f/xldqqgqz" method="POST">
                         <div class="form-group">
                             <label for="name">Full Name *</label>
                             <input type="text" id="name" name="name" class="form-control" required>
@@ -623,6 +791,7 @@
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#about">About Our Products</a></li>
+                        <li><a href="#products">Products</a></li>
                         <li><a href="#contact">Contact Us</a></li>
                         <li><a href="#">Technical Specifications</a></li>
                         <li><a href="#">Installation Guide</a></li>
@@ -631,7 +800,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; Hydrochill Cooling Pad Manufacturing Company. All rights reserved.</p>
+                <p>&copy; 2025 Hydrochill Cooling Pad Manufacturing Company. All rights reserved.</p>
             </div>
         </div>
     </footer>
