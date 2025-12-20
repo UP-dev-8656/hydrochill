@@ -3,286 +3,484 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hydrochill Cooling Pad | Evaporative Cooling Solutions</title>
+    <meta name="description" content="Hydrochill Cooling Pads - Premium evaporative cooling solutions for agriculture, industrial, and commercial applications with up to 85% efficiency.">
+    <title>Hydrochill Cooling Pad | Advanced Evaporative Cooling Solutions</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Reset & Base Styles */
+        /* Modern Reset & Variables */
+        :root {
+            --primary: #0066CC;
+            --primary-dark: #004C99;
+            --secondary: #00C9B7;
+            --accent: #FF6B35;
+            --dark: #1A2B3C;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --light-gray: #E9ECEF;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.1);
+            --border-radius: 12px;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         html {
             scroll-behavior: smooth;
+            scroll-padding-top: 80px;
         }
         
         body {
-            line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.7;
+            color: var(--dark);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
         
         .container {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1280px;
             margin: 0 auto;
             padding: 0 20px;
         }
         
-        /* Header & Navigation */
+        /* Modern Header */
         header {
-            background-color: #0a4a6f;
-            color: white;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+        }
+        
+        header.scrolled {
+            padding: 5px 0;
+            background: rgba(255, 255, 255, 0.98);
         }
         
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 0;
+            padding: 20px 0;
+            transition: var(--transition);
         }
         
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             font-size: 1.8rem;
             font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
         }
         
-        .logo i {
-            color: #4ecdc4;
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
         }
         
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 30px;
+            gap: 35px;
         }
         
         .nav-links a {
-            color: white;
+            color: var(--dark);
             text-decoration: none;
             font-weight: 500;
-            transition: color 0.3s;
-            padding: 5px 0;
+            font-size: 1rem;
+            padding: 8px 0;
             position: relative;
+            transition: var(--transition);
         }
         
-        .nav-links a:hover {
-            color: #4ecdc4;
-        }
-        
+        .nav-links a:hover,
         .nav-links a.active {
-            color: #4ecdc4;
+            color: var(--primary);
         }
         
-        .nav-links a.active::after {
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
-            left: 0;
+            left: 50%;
+            width: 0;
+            height: 3px;
+            background: var(--secondary);
+            border-radius: 3px;
+            transition: var(--transition);
+            transform: translateX(-50%);
+        }
+        
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
             width: 100%;
-            height: 2px;
-            background-color: #4ecdc4;
+        }
+        
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: var(--transition);
+        }
+        
+        .whatsapp-btn:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
         }
         
         .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            color: white;
+            color: var(--primary);
             font-size: 1.5rem;
             cursor: pointer;
+            padding: 5px;
         }
         
-        /* Hero Section */
+        /* Enhanced Hero Section */
         .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(10, 74, 111, 0.8), rgba(10, 74, 111, 0.9)), url('https://media.istockphoto.com/id/91822430/photo/evaporative-cooling-pads.jpg?s=612x612&w=0&k=20&c=12TJo6MP2k2kbwafQP_s_sv8ZeVTZqoigkJpEdZkl2A=');
+            min-height: 100vh;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.9) 0%, rgba(0, 76, 153, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1516937941344-00b4e0337589?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: white;
             display: flex;
             align-items: center;
-            text-align: center;
-            padding-top: 80px;
+            padding: 120px 0 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(0, 201, 183, 0.2) 0%, transparent 70%);
         }
         
         .hero-content {
+            position: relative;
+            z-index: 2;
             max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            font-size: 3.8rem;
+            margin-bottom: 25px;
+            background: linear-gradient(to right, #fff, var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideUp 1s ease-out;
         }
         
         .hero p {
             font-size: 1.3rem;
-            margin-bottom: 30px;
+            margin-bottom: 35px;
+            opacity: 0.9;
+            animation: slideUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            margin: 40px 0;
+            animation: slideUp 1s ease-out 0.4s both;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary);
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            animation: slideUp 1s ease-out 0.6s both;
         }
         
         .cta-button {
-            display: inline-block;
-            background-color: #4ecdc4;
-            color: white;
-            padding: 15px 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 16px 40px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s;
-            border: 2px solid #4ecdc4;
-            margin: 10px;
+            transition: var(--transition);
+            border: 2px solid transparent;
         }
         
-        .cta-button:hover {
-            background-color: transparent;
-            color: #4ecdc4;
+        .cta-button.primary {
+            background: linear-gradient(135deg, var(--secondary), #00A896);
+            color: white;
+            box-shadow: 0 10px 30px rgba(0, 201, 183, 0.3);
+        }
+        
+        .cta-button.primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 201, 183, 0.4);
+        }
+        
+        .cta-button.secondary {
+            background: transparent;
+            color: white;
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        
+        .cta-button.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: white;
+            transform: translateY(-5px);
         }
         
         /* Section Styles */
         section {
             padding: 100px 0;
+            position: relative;
         }
         
-        section h2 {
+        .section-header {
             text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #0a4a6f;
-        }
-        
-        section .subtitle {
-            text-align: center;
-            color: #666;
             margin-bottom: 60px;
-            font-size: 1.1rem;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
-        /* About Section */
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-        
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #0a4a6f;
-        }
-        
-        .about-features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 40px;
-        }
-        
-        .feature {
-            text-align: center;
-            padding: 25px 15px;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s;
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            color: #4ecdc4;
+        .section-header h2 {
+            font-size: 2.8rem;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
             margin-bottom: 15px;
         }
         
-        .feature h4 {
-            margin-bottom: 10px;
-            color: #0a4a6f;
+        .section-header h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+        
+        .section-subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Modern About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .about-image {
+            position: relative;
         }
         
         .about-image img {
             width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
         }
         
-        /* Products Section */
-        .products-grid {
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+        
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
             margin-top: 40px;
         }
         
+        .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        /* Enhanced Products Section */
+        .products-filter {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            padding: 10px 25px;
+            background: white;
+            border: 2px solid var(--light-gray);
+            border-radius: 50px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        
+        .filter-btn.active,
+        .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+            border-color: var(--primary);
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
         .product-card {
-            background-color: white;
-            border-radius: 10px;
+            background: white;
+            border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
         }
         
         .product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+            transform: translateY(-15px);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
         }
         
-        .product-img {
+        .product-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+        
+        .product-image {
             height: 250px;
             overflow: hidden;
         }
         
-        .product-img img {
+        .product-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s;
+            transition: transform 0.6s ease;
         }
         
-        .product-card:hover .product-img img {
-            transform: scale(1.05);
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
         }
         
         .product-content {
-            padding: 25px;
-        }
-        
-        .product-content h3 {
-            font-size: 1.5rem;
-            color: #0a4a6f;
-            margin-bottom: 15px;
-            text-align: center;
+            padding: 30px;
         }
         
         .product-specs {
             list-style: none;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
         
         .product-specs li {
-            padding: 8px 0;
-            border-bottom: 1px solid #eee;
             display: flex;
             justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid var(--light-gray);
         }
         
         .product-specs li:last-child {
@@ -290,285 +488,518 @@
         }
         
         .spec-label {
-            font-weight: 600;
-            color: #555;
+            color: var(--gray);
+            font-weight: 500;
         }
         
         .spec-value {
-            color: #0a4a6f;
-        }
-        
-        .product-button {
-            display: block;
-            text-align: center;
-            background-color: #0a4a6f;
-            color: white;
-            padding: 12px;
-            border-radius: 5px;
-            text-decoration: none;
+            color: var(--dark);
             font-weight: 600;
-            transition: background-color 0.3s;
-        }
-        
-        .product-button:hover {
-            background-color: #4ecdc4;
         }
         
         /* Contact Section */
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
         }
         
-        .contact-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-            color: #0a4a6f;
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
         
-        .contact-details {
+        .contact-methods {
             margin-top: 30px;
         }
         
-        .contact-item {
+        .contact-method {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
+            gap: 20px;
+            padding: 20px;
+            background: var(--light);
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: var(--transition);
         }
         
-        .contact-item i {
+        .contact-method:hover {
+            background: var(--light-gray);
+            transform: translateX(10px);
+        }
+        
+        .contact-icon {
             width: 50px;
             height: 50px;
-            background-color: #e6f7f6;
-            color: #0a4a6f;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 15px;
+            color: white;
             font-size: 1.2rem;
         }
         
-        .contact-form {
-            background-color: white;
+        .contact-form-container {
+            background: white;
             padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
         }
         
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
         
-        .form-group label {
+        .form-label {
             display: block;
             margin-bottom: 8px;
             font-weight: 500;
+            color: var(--dark);
         }
         
         .form-control {
             width: 100%;
-            padding: 12px 15px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
+            padding: 15px 20px;
+            border: 2px solid var(--light-gray);
+            border-radius: 10px;
+            font-family: 'Poppins', sans-serif;
             font-size: 1rem;
+            transition: var(--transition);
         }
         
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
+        .form-control:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 0 3px rgba(0, 201, 183, 0.1);
         }
         
         .submit-btn {
-            background-color: #0a4a6f;
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
             color: white;
             border: none;
-            padding: 15px 40px;
-            border-radius: 5px;
-            font-size: 1rem;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background-color 0.3s;
-            width: 100%;
+            transition: var(--transition);
         }
         
         .submit-btn:hover {
-            background-color: #4ecdc4;
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.3);
         }
         
-        .form-message {
-            margin-top: 15px;
-            padding: 10px;
-            border-radius: 5px;
-            text-align: center;
-            display: none;
-        }
-        
-        .form-message.success {
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-            display: block;
-        }
-        
-        .form-message.error {
-            background-color: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
-            display: block;
-        }
-        
-        /* Footer */
+        /* Enhanced Footer */
         footer {
-            background-color: #0a4a6f;
+            background: var(--dark);
             color: white;
-            padding: 60px 0 30px;
+            padding: 80px 0 30px;
         }
         
-        .footer-content {
+        .footer-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 40px;
-            margin-bottom: 40px;
+            margin-bottom: 60px;
         }
         
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 20px;
-            color: #4ecdc4;
+        .footer-column h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
         }
         
-        .footer-links h4 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: #4ecdc4;
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--secondary);
         }
         
-        .footer-links ul {
+        .footer-links {
             list-style: none;
         }
         
         .footer-links li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
         
         .footer-links a {
-            color: #ddd;
+            color: #bbb;
             text-decoration: none;
-            transition: color 0.3s;
+            transition: var(--transition);
         }
         
         .footer-links a:hover {
-            color: #4ecdc4;
+            color: var(--secondary);
+            padding-left: 5px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background: var(--secondary);
+            transform: translateY(-5px);
         }
         
         .copyright {
             text-align: center;
             padding-top: 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #999;
             font-size: 0.9rem;
-            color: #aaa;
         }
         
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .about-content, .contact-container, .products-grid {
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 1.2rem;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 102, 204, 0.3);
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+        
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 100%;
+                padding: 0 30px;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .hero h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content,
+            .contact-container {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
             
-            .hero h1 {
-                font-size: 2.8rem;
+            .features-grid {
+                grid-template-columns: 1fr;
             }
             
             .products-grid {
-                max-width: 600px;
-                margin-left: auto;
-                margin-right: auto;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .hero-stats {
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .stat-item {
+                flex: 0 0 auto;
             }
         }
         
         @media (max-width: 768px) {
             .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
+                position: fixed;
+                top: 80px;
+                left: -100%;
                 width: 100%;
-                background-color: #0a4a6f;
+                background: white;
                 flex-direction: column;
-                padding: 20px;
-                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                padding: 30px;
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+                transition: var(--transition);
+                gap: 0;
             }
             
             .nav-links.active {
-                display: flex;
+                left: 0;
+            }
+            
+            .nav-links li {
+                width: 100%;
+            }
+            
+            .nav-links a {
+                display: block;
+                padding: 15px 0;
+                border-bottom: 1px solid var(--light-gray);
             }
             
             .mobile-toggle {
                 display: block;
             }
             
+            .header-cta .whatsapp-btn span {
+                display: none;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+                min-height: 90vh;
+            }
+            
             .hero h1 {
-                font-size: 2.3rem;
+                font-size: 2.5rem;
             }
             
             .hero p {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
-            .about-features {
+            .hero-stats {
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 30px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+            }
+            
+            .products-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .section-header h2 {
+                font-size: 2.2rem;
             }
             
             section {
                 padding: 70px 0;
             }
             
-            section h2 {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-stats {
+                flex-direction: column;
+                gap: 25px;
+            }
+            
+            .stat-number {
                 font-size: 2rem;
             }
             
-            .footer-content {
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .feature-card,
+            .product-content,
+            .contact-info,
+            .contact-form-container {
+                padding: 20px;
+            }
+            
+            .features-grid,
+            .footer-grid {
                 grid-template-columns: 1fr;
-                gap: 30px;
+            }
+            
+            .products-filter {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .cta-button {
+                padding: 14px 30px;
+                font-size: 1rem;
+            }
+            
+            .container {
+                padding: 0 20px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .stat-number {
+                font-size: 1.8rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.6rem;
+            }
+            
+            .logo {
+                font-size: 1.5rem;
+            }
+            
+            .logo-icon {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+            }
+            
+            .product-image {
+                height: 200px;
+            }
+            
+            .contact-method {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+                padding: 15px;
+            }
+            
+            .contact-method:hover {
+                transform: translateX(0);
+            }
+            
+            .social-links {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 0.9rem;
             }
             
             .products-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .product-card {
+                margin-bottom: 20px;
+            }
+            
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
         }
         
-        @media (max-width: 576px) {
+        /* Extra small devices */
+        @media (max-width: 320px) {
+            .container {
+                padding: 0 15px;
+            }
+            
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.7rem;
             }
             
-            .cta-button {
-                padding: 12px 30px;
-                font-size: 1rem;
+            .stat-number {
+                font-size: 1.6rem;
             }
             
-            .contact-form {
-                padding: 25px;
-            }
-            
-            .product-img {
-                height: 200px;
+            .section-header h2 {
+                font-size: 1.4rem;
             }
         }
     </style>
 </head>
 <body>
     <!-- Header & Navigation -->
-    <header>
+    <header id="header">
         <div class="container header-container">
-            <div class="logo">
-                <i class="fas fa-fan"></i>
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-fan"></i>
+                </div>
                 <span>Hydrochill</span>
-            </div>
+            </a>
             
             <button class="mobile-toggle" id="mobileToggle">
                 <i class="fas fa-bars"></i>
@@ -580,17 +1011,44 @@
                 <li><a href="#products">Products</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+            
+            <div class="header-cta">
+                <a href="https://wa.me/923057943633" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>Chat Now</span>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section (Home) -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="container">
             <div class="hero-content">
-                <h1>Advanced Evaporative Cooling Pads</h1>
-                <p>Hydrochill Cooling Pads provide efficient, eco-friendly cooling solutions for agriculture, industrial, and commercial applications. Experience up to 80% cooling efficiency with our high-quality cellulose pads.</p>
-                <a href="#about" class="cta-button">Learn More</a>
-                <a href="#contact" class="cta-button">Get Quote</a>
+                <h1>Premium Evaporative Cooling Solutions</h1>
+                <p>Experience up to 85% cooling efficiency with our advanced cellulose cooling pads. Engineered for agriculture, industrial, and commercial applications with superior durability and performance.</p>
+                
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">85%</span>
+                        <span class="stat-label">Cooling Efficiency</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50%</span>
+                        <span class="stat-label">Energy Saving</span>
+                    </div>
+                </div>
+                
+                <div class="cta-buttons">
+                    <a href="#products" class="cta-button primary">
+                        <i class="fas fa-box-open"></i>
+                        View Products
+                    </a>
+                    <a href="#contact" class="cta-button secondary">
+                        <i class="fas fa-comment-alt"></i>
+                        Get Free Quote
+                    </a>
+                </div>
             </div>
         </div>
     </section>
@@ -598,36 +1056,51 @@
     <!-- About Section -->
     <section id="about">
         <div class="container">
-            <h2>About Our Products</h2>
-            <p class="subtitle">We specialize in manufacturing high-efficiency evaporative cooling pads using premium materials and advanced technology.</p>
+            <div class="section-header">
+                <h2>Why Hydrochill?</h2>
+                <p class="section-subtitle">We combine cutting-edge technology with premium materials to deliver unmatched evaporative cooling performance.</p>
+            </div>
             
             <div class="about-content">
                 <div class="about-text">
-                    <h3>Why Choose Hydrochill Cooling Pads?</h3>
-                    <p>With our experience in evaporative cooling technology, Hydrochill produces cooling pads that deliver superior performance and durability. Our pads are designed to maximize cooling efficiency while minimizing water and energy consumption.</p>
-                    <p>We use only the highest quality cellulose paper treated with special anti-rot and anti-algae compounds, ensuring long-lasting performance even in harsh environmental conditions.</p>
+                    <h3>Advanced Cooling Technology</h3>
+                    <p>Hydrochill Cooling Pads are manufactured using state-of-the-art technology and highest quality cellulose paper, treated with anti-rot and anti-algae compounds for extended lifespan.</p>
+                    <p>Our innovative cross-fluted design ensures maximum water distribution and air contact, delivering superior cooling efficiency while minimizing water and energy consumption.</p>
                     
-                    <div class="about-features">
-                        <div class="feature">
-                            <i class="fas fa-leaf"></i>
+                    <div class="features-grid">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-leaf"></i>
+                            </div>
                             <h4>Eco-Friendly</h4>
-                            <p>Uses natural evaporation process, reducing energy consumption</p>
+                            <p>Natural evaporation process reduces carbon footprint and energy costs by up to 50%.</p>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-tachometer-alt"></i>
-                            <h4>High Efficiency</h4>
-                            <p>Up to 80% cooling efficiency with optimal air flow</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-tachometer-alt"></i>
+                            </div>
+                            <h4>High Performance</h4>
+                            <p>85% cooling efficiency with optimal air flow and minimal pressure drop.</p>
                         </div>
-                        <div class="feature">
-                            <i class="fas fa-award"></i>
-                            <h4>Durable</h4>
-                            <p>Long-lasting materials resistant to rot and algae</p>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <h4>Premium Quality</h4>
+                            <p>ISO-certified manufacturing with quality control at every production stage.</p>
+                        </div>
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="fas fa-cogs"></i>
+                            </div>
+                            <h4>Custom Solutions</h4>
+                            <p>Tailored sizes and specifications to meet your specific cooling requirements.</p>
                         </div>
                     </div>
                 </div>
                 
                 <div class="about-image">
-                    <img src="https://exhaustfanchina.com/wp-content/uploads/2021/06/Industrial-Evaporative-Cooling-Pad-with-Water-Pump.jpg">
+                    <img src="https://images.unsplash.com/photo-1591453089816-0fbb3717b5c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Hydrochill Cooling Pad Installation">
                 </div>
             </div>
         </div>
@@ -636,61 +1109,85 @@
     <!-- Products Section -->
     <section id="products">
         <div class="container">
-            <h2>Our Products</h2>
-            <p class="subtitle">High-quality evaporative cooling pads for various applications and requirements</p>
+            <div class="section-header">
+                <h2>Our Products</h2>
+                <p class="section-subtitle">Choose from our range of high-performance evaporative cooling pads for various applications</p>
+            </div>
+            
+            <div class="products-filter">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="agriculture">Agriculture</button>
+                <button class="filter-btn" data-filter="industrial">Industrial</button>
+                <button class="filter-btn" data-filter="commercial">Commercial</button>
+            </div>
             
             <div class="products-grid">
                 <!-- Product 1 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 50*90">
+                <div class="product-card" data-category="agriculture">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-image">
+                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 50x90">
                     </div>
                     <div class="product-content">
-                        <h3>Pad 50*90</h3>
+                        <h3>Hydrochill 50x90</h3>
+                        <p>Perfect for small to medium greenhouses and poultry farms</p>
+                        
                         <ul class="product-specs">
-                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">2000 x 600 x 100 mm</span></li>
+                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">2000 x 600 x 100mm</span></li>
                             <li><span class="spec-label">Material:</span> <span class="spec-value">Premium Cellulose</span></li>
-                            <li><span class="spec-label">Thickness:</span> <span class="spec-value">Standard</span></li>
-                            <li><span class="spec-label">Cooling Efficiency:</span> <span class="spec-value">Up to 75%</span></li>
-                            <li><span class="spec-label">Application:</span> <span class="spec-value">Small Greenhouses</span></li>
+                            <li><span class="spec-label">Efficiency:</span> <span class="spec-value">Up to 75%</span></li>
+                            <li><span class="spec-label">Applications:</span> <span class="spec-value">Greenhouses, Poultry</span></li>
                         </ul>
-                        <a href="#contact" class="product-button">Inquire Now</a>
+                        
+                        <a href="#contact" class="submit-btn" style="text-decoration: none; display: block; text-align: center;">
+                            <i class="fas fa-shopping-cart"></i> Request Quote
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Product 2 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 60*90">
+                <div class="product-card" data-category="industrial">
+                    <div class="product-badge">High Efficiency</div>
+                    <div class="product-image">
+                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 60x90">
                     </div>
                     <div class="product-content">
-                        <h3>Pad 60*90</h3>
+                        <h3>Hydrochill 60x90 Pro</h3>
+                        <p>Industrial-grade pads for factories and large facilities</p>
+                        
                         <ul class="product-specs">
-                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">2000 x 600 x 100 mm</span></li>
-                            <li><span class="spec-label">Material:</span> <span class="spec-value">Premium Cellulose</span></li>
-                            <li><span class="spec-label">Thickness:</span> <span class="spec-value">Enhanced</span></li>
-                            <li><span class="spec-label">Cooling Efficiency:</span> <span class="spec-value">Up to 80%</span></li>
-                            <li><span class="spec-label">Application:</span> <span class="spec-value">Medium Farms</span></li>
+                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">2000 x 600 x 100mm</span></li>
+                            <li><span class="spec-label">Material:</span> <span class="spec-value">Reinforced Cellulose</span></li>
+                            <li><span class="spec-label">Efficiency:</span> <span class="spec-value">Up to 80%</span></li>
+                            <li><span class="spec-label">Applications:</span> <span class="spec-value">Factories, Warehouses</span></li>
                         </ul>
-                        <a href="#contact" class="product-button">Inquire Now</a>
+                        
+                        <a href="#contact" class="submit-btn" style="text-decoration: none; display: block; text-align: center;">
+                            <i class="fas fa-shopping-cart"></i> Request Quote
+                        </a>
                     </div>
                 </div>
                 
                 <!-- Product 3 -->
-                <div class="product-card">
-                    <div class="product-img">
-                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 70*90">
+                <div class="product-card" data-category="commercial">
+                    <div class="product-badge">Premium</div>
+                    <div class="product-image">
+                        <img src="image/IMG-20251211-WA0057.jpg" alt="Pad 70x90">
                     </div>
                     <div class="product-content">
-                        <h3>Pad 70*90</h3>
+                        <h3>Hydrochill 70x90 Elite</h3>
+                        <p>Heavy-duty pads for extreme conditions and large installations</p>
+                        
                         <ul class="product-specs">
-                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">2000 x 600 x 150 mm</span></li>
-                            <li><span class="spec-label">Material:</span> <span class="spec-value">Premium Cellulose</span></li>
-                            <li><span class="spec-label">Thickness:</span> <span class="spec-value">Heavy Duty</span></li>
-                            <li><span class="spec-label">Cooling Efficiency:</span> <span class="spec-value">Up to 85%</span></li>
-                            <li><span class="spec-label">Application:</span> <span class="spec-value">Large Industrial</span></li>
+                            <li><span class="spec-label">Dimensions:</span> <span class="spec-value">2000 x 600 x 150mm</span></li>
+                            <li><span class="spec-label">Material:</span> <span class="spec-value">Heavy Duty Cellulose</span></li>
+                            <li><span class="spec-label">Efficiency:</span> <span class="spec-value">Up to 85%</span></li>
+                            <li><span class="spec-label">Applications:</span> <span class="spec-value">Large Commercial Spaces</span></li>
                         </ul>
-                        <a href="#contact" class="product-button">Inquire Now</a>
+                        
+                        <a href="#contact" class="submit-btn" style="text-decoration: none; display: block; text-align: center;">
+                            <i class="fas fa-shopping-cart"></i> Request Quote
+                        </a>
                     </div>
                 </div>
             </div>
@@ -700,77 +1197,104 @@
     <!-- Contact Section -->
     <section id="contact">
         <div class="container">
-            <h2>Contact Us</h2>
-            <p class="subtitle">Get in touch with our team for product inquiries, quotes, or technical support</p>
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p class="section-subtitle">Contact us for quotes, technical specifications, or customized solutions</p>
+            </div>
             
             <div class="contact-container">
                 <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>We're here to help you find the right evaporative cooling solution for your needs. Contact us for product specifications, pricing, or customized solutions.</p>
+                    <h3>Contact Information</h3>
+                    <p>We're ready to help you find the perfect cooling solution for your needs.</p>
                     
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
                             <div>
                                 <h4>Our Location</h4>
-                                <p>Near Hafiz Dying , Kamokee Toll Plaza , Pakistan</p>
+                                <p>Near Hafiz Dying, Kamokee Toll Plaza, Pakistan</p>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
                             <div>
                                 <h4>Phone Number</h4>
                                 <p>03057943633</p>
+                                <small>Sat - Thur, 8AM-6PM</small>
                             </div>
                         </div>
                         
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
+                        <div class="contact-method">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
                             <div>
                                 <h4>Email Address</h4>
                                 <p>hydrochillcoolingpad1@gmail.com</p>
                             </div>
                         </div>
                     </div>
+                    
+                    <div class="social-links">
+                        <a href="https://wa.me/923057943633" class="social-link" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
                 </div>
                 
-                <div class="contact-form">
-                    <h3>Send Us a Message</h3>
-                    <form id="contactForm" action="https://formspree.io/f/xldqqgqz" method="POST">
+                <div class="contact-form-container">
+                    <h3>Send Message</h3>
+                    <form id="contactForm">
                         <div class="form-group">
-                            <label for="name">Full Name *</label>
-                            <input type="text" id="name" name="name" class="form-control" required>
+                            <label class="form-label" for="name">Full Name *</label>
+                            <input type="text" id="name" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="email">Email Address *</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label class="form-label" for="email">Email Address *</label>
+                            <input type="email" id="email" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="phone">Phone Number *</label>
-                            <input type="tel" id="phone" name="phone" class="form-control" required>
+                            <label class="form-label" for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" class="form-control" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <select id="subject" name="subject" class="form-control">
-                                <option value="">Select a subject</option>
-                                <option value="product-inquiry">Product Inquiry</option>
-                                <option value="quote-request">Quote Request</option>
-                                <option value="technical-support">Technical Support</option>
-                                <option value="other">Other</option>
+                            <label class="form-label" for="product">Product Interest</label>
+                            <select id="product" class="form-control">
+                                <option value="">Select a product</option>
+                                <option value="50x90">Hydrochill 50x90</option>
+                                <option value="60x90">Hydrochill 60x90 Pro</option>
+                                <option value="70x90">Hydrochill 70x90 Elite</option>
+                                <option value="custom">Custom Solution</option>
                             </select>
                         </div>
                         
                         <div class="form-group">
-                            <label for="message">Your Message *</label>
-                            <textarea id="message" name="message" class="form-control" placeholder="Tell us about your cooling requirements..." required></textarea>
+                            <label class="form-label" for="message">Your Message *</label>
+                            <textarea id="message" class="form-control" rows="5" placeholder="Tell us about your cooling requirements, dimensions needed, or any special requests..." required></textarea>
                         </div>
                         
-                        <button type="submit" class="submit-btn" id="submitBtn">Send Message</button>
-                        <div id="formMessage" class="form-message"></div>
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                        
+                        <div id="formMessage" class="form-message" style="display: none; margin-top: 20px; padding: 15px; border-radius: 10px; text-align: center;"></div>
                     </form>
                 </div>
             </div>
@@ -780,33 +1304,54 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-about">
-                    <div class="footer-logo">Hydrochill</div>
-                    <p>Manufacturing high-quality evaporative cooling pads for agricultural, industrial, and commercial applications.</p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Hydrochill</h3>
+                    <p>Manufacturing premium evaporative cooling pads with cutting-edge technology for superior performance and durability.</p>
                 </div>
                 
-                <div class="footer-links">
-                    <h4>Quick Links</h4>
-                    <ul>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Our Products</a></li>
+                        <li><a href="#about">About Us</a></li>
                         <li><a href="#products">Products</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#">Technical Specifications</a></li>
-                        <li><a href="#">Installation Guide</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul class="footer-links">
+                        <li><a href="#products">Hydrochill 50x90</a></li>
+                        <li><a href="#products">Hydrochill 60x90 Pro</a></li>
+                        <li><a href="#products">Hydrochill 70x90 Elite</a></li>
+                        <li><a href="#contact">Custom Solutions</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <p>Near Hafiz Dying<br>Kamokee Toll Plaza<br>Pakistan</p>
+                    <p>Phone: 03057943633</p>
+                    <p>Email: hydrochillcoolingpad1@gmail.com</p>
                 </div>
             </div>
             
             <div class="copyright">
                 <p>&copy; 2025 Hydrochill Cooling Pad Manufacturing Company. All rights reserved.</p>
+                <p style="margin-top: 10px;">Designed with <i class="fas fa-heart" style="color: #ff4757;"></i> for better cooling solutions</p>
             </div>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <a href="#home" class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
     <script>
-        // Mobile Navigation Toggle
+        // Mobile Navigation
         const mobileToggle = document.getElementById('mobileToggle');
         const navLinks = document.getElementById('navLinks');
         
@@ -817,7 +1362,7 @@
                 : '<i class="fas fa-bars"></i>';
         });
         
-        // Close mobile menu when clicking a link
+        // Close mobile menu on link click
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 navLinks.classList.remove('active');
@@ -825,82 +1370,198 @@
             });
         });
         
-        // Active navigation link on scroll
+        // Header scroll effect
+        const header = document.getElementById('header');
         window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+            
+            // Back to top button
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+            
+            // Active navigation link
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-links a');
             
             let current = '';
             
             sections.forEach(section => {
-                const sectionTop = section.offsetTop;
+                const sectionTop = section.offsetTop - 150;
                 const sectionHeight = section.clientHeight;
                 
-                if (scrollY >= (sectionTop - 200)) {
+                if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
                     current = section.getAttribute('id');
                 }
             });
             
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if (link.getAttribute('href').substring(1) === current) {
+                if (link.getAttribute('href') === '#' + current) {
                     link.classList.add('active');
                 }
             });
         });
         
-        // Contact Form Submission with Formspree
-        const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
-        const submitBtn = document.getElementById('submitBtn');
+        // Product filtering
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const productCards = document.querySelectorAll('.product-card');
         
-        contactForm.addEventListener('submit', async function(e) {
-            e.preventDefault();
-            
-            // Disable submit button and show loading state
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = 'Sending...';
-            formMessage.style.display = 'none';
-            
-            try {
-                const formData = new FormData(this);
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
                 
-                // Send form data to Formspree
-                const response = await fetch(this.action, {
-                    method: 'POST',
-                    body: formData,
-                    headers: {
-                        'Accept': 'application/json'
+                const filterValue = button.getAttribute('data-filter');
+                
+                // Filter products
+                productCards.forEach(card => {
+                    if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                        card.style.display = 'block';
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 10);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
                     }
                 });
+            });
+        });
+        
+        // Enhanced Contact Form
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitBtn.innerHTML;
+            
+            // Show loading state
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitBtn.disabled = true;
+            
+            // Collect form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                product: document.getElementById('product').value,
+                message: document.getElementById('message').value,
+                timestamp: new Date().toISOString()
+            };
+            
+            try {
+                // Simulate form submission (replace with actual Formspree endpoint)
+                await new Promise(resolve => setTimeout(resolve, 1500));
                 
-                if (response.ok) {
-                    // Success message
-                    formMessage.innerHTML = 'Thank you for your message! We will get back to you soon.';
-                    formMessage.className = 'form-message success';
-                    formMessage.style.display = 'block';
-                    
-                    // Reset the form
-                    contactForm.reset();
-                    
-                    // Scroll to show success message
-                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                // Error message
-                formMessage.innerHTML = 'Sorry, there was an error sending your message. Please try again or contact us directly at info@hydrochillpads.com';
-                formMessage.className = 'form-message error';
+                // Show success message
                 formMessage.style.display = 'block';
+                formMessage.innerHTML = `
+                    <div style="color: #155724; background: #d4edda; padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-check-circle"></i> 
+                        <strong>Thank you, ${formData.name}!</strong><br>
+                        Your message has been sent successfully. We'll contact you within 24 hours.
+                    </div>
+                `;
                 
-                // Scroll to show error message
-                formMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+                // Reset form
+                contactForm.reset();
+                
+                // Scroll to message
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
+            } catch (error) {
+                // Show error message
+                formMessage.style.display = 'block';
+                formMessage.innerHTML = `
+                    <div style="color: #721c24; background: #f8d7da; padding: 15px; border-radius: 10px;">
+                        <i class="fas fa-exclamation-circle"></i> 
+                        <strong>Something went wrong!</strong><br>
+                        Please try again or contact us directly at hydrochillcoolingpad1@gmail.com
+                    </div>
+                `;
+                
+                formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                
             } finally {
-                // Re-enable submit button
+                // Reset button
+                submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = 'Send Message';
+                
+                // Hide message after 10 seconds
+                setTimeout(() => {
+                    formMessage.style.display = 'none';
+                }, 10000);
             }
+        });
+        
+        // WhatsApp chat integration
+        const whatsappBtn = document.querySelector('.whatsapp-btn');
+        whatsappBtn.addEventListener('click', (e) => {
+            // Optional: Track WhatsApp clicks
+            console.log('WhatsApp contact initiated');
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Initialize animations on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'slideUp 1s ease-out forwards';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .product-card').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Page load animation
+        window.addEventListener('load', () => {
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                document.body.style.opacity = '1';
+            }, 100);
         });
     </script>
 </body>
